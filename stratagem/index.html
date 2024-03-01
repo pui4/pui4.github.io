@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATAGEM</title>
+    <link rel="icon" type="image/x-icon" href="./icon.png">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="ctn">
+        <div class="main-ctn">
+            <h1 id="score">SCORE: 0</h1>
+            <div class="title" id="title">
+                js not loaded
+            </div>
+            <div id="btns" class="btns">
+                <!-- filter: invert(78%) sepia(87%) saturate(5065%) hue-rotate(358deg) brightness(96%) contrast(105%); -->
+            </div>
+            <div class="bar-ctn">
+                <div class="bar" id="bar" style="width: 100%;"></div>
+            </div>
+        </div>
+        <div class="start" id="start">
+            <div class="s-ctn">
+                <h1>WELCOME TO STRATAGEM</h1>
+                <p class="s-p">This is a web recreation of the STRATAGEM HERO arcade machine found in Helldivers 2.</p>
+                <button class="p-btn" onclick="start()">PLAY</button>
+            </div>
+        </div>
+        <div class="start" id="lose" style="display: none;">
+            <div class="s-ctn">
+                <h1>GAME OVER</h1>
+                <h1 id="score-tx">SCORE: js not loaded</h1>
+                <div class="twitter">
+                    <a id="twitter" style="display: inline;" href="https://twitter.com/intent/tweet?text=SCORE: num&url=https://pui4.github.io/stratagem" target="blank" title="twitter">
+                        <i class="fa fa-twitter"></i>
+                        <span>SHARE</span>
+                    </a>
+                </div>
+                <button class="p-btn" onclick="retry()">RESTART</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
