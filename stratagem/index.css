@@ -99,3 +99,33 @@ a {
     padding-bottom: 3%;
     font-size: x-large;
 }
+
+.s-icon {
+    font-size: 6vh;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    text-align: center;
+    padding: 1%;
+}
+
+.ax {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+
+.le {
+    padding-left: 3%;
+}
+
+.ri {
+    margin-right: 3%;
+    font-family: "Kode Mono";
+}
+
+.st-ctn {
+    position: absolute;
+    right: 0%;
+    padding: 1%;
+}

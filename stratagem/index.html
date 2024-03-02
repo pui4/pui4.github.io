@@ -23,6 +23,9 @@
                 <div class="bar" id="bar" style="width: 100%;"></div>
             </div>
         </div>
+        <div class="st-ctn">
+            <button class="s-icon" onclick="settings()"><i class="fa fa-gear"></i></button>
+        </div>
         <div class="start" id="start">
             <div class="s-ctn">
                 <h1>WELCOME TO STRATAGEM</h1>
@@ -41,6 +44,28 @@
                     </a>
                 </div>
                 <button class="p-btn" onclick="retry()">RESTART</button>
+            </div>
+        </div>
+        <div class="start" id="settings" style="display: none;">
+            <div class="s-ctn">
+                <h1>SETTINGS</h1>
+                <div class="ax">
+                    <span class="le" id="left-tx">LEFT: js not loaded</span>
+                    <button class="ri" onclick="changeL()">SET KEYBIND</button>
+                </div>
+                <div class="ax">
+                    <span class="le" id="right-tx">RIGHT: js not loaded</span>
+                    <button class="ri" onclick="changeR()">SET KEYBIND</button>
+                </div>
+                <div class="ax">
+                    <span class="le" id="up-tx">UP: js not loaded</span>
+                    <button class="ri" onclick="changeU()">SET KEYBIND</button>
+                </div>
+                <div class="ax">
+                    <span class="le" id="down-tx">DOWN: js not loaded</span>
+                    <button class="ri" onclick="changeD()">SET KEYBIND</button>
+                </div>
+                <button class="p-btn" onclick="closeSet()">CLOSE</button>
             </div>
         </div>
     </div>

@@ -8,6 +8,14 @@ var score = 0;
 var inc = 15;
 var playing = false;
 var w_inc = 30;
+var id;
+var left = "a";
+var right = "d";
+var up = "w";
+var down = "s";
+
+// 0: default 1:left 2:right 3:up 4:down
+var change = 0;
 
 // https://www.youtube.com/watch?v=ijBvQACTlvs
 var button = new Audio("sfx/click.mp3");
@@ -22,7 +30,41 @@ var w_fx = new Audio("sfx/wrong.mp3");
 
 document.addEventListener("DOMContentLoaded", function () {
   createbtns(rd);
+
+  var l_e = document.getElementById("left-tx");
+  var r_e = document.getElementById("right-tx");
+  var u_e = document.getElementById("up-tx");
+  var d_e = document.getElementById("down-tx");
+
+  l_e.innerHTML = "LEFT: " + left;
+  r_e.innerHTML = "RIGHT: " + right;
+  u_e.innerHTML = "UP: " + up;
+  d_e.innerHTML = "DOWN: " + down;
 });
+
+function changeL() {
+    if (change == 0) {
+        change = 1;
+    }
+}
+
+function changeR() {
+    if (change == 0) {
+        change = 2;
+    }
+}
+
+function changeU() {
+    if (change == 0) {
+        change = 3;
+    }
+}
+
+function changeD() {
+    if (change == 0) {
+        change = 4;
+    }
+}
 
 function start() {
     var elem = document.getElementById("start");
@@ -32,16 +74,30 @@ function start() {
     var elem = document.getElementById("bar");
     var id = setInterval(frame, interval);
     function frame() {
-        if (width <= 0) {
-            clearInterval(id);
-            lose();
-        } else {
-            width--;
-            elem.style.width = width + "%";
-            clearInterval(id);
-            id = setInterval(frame, interval);
+        if (playing) {
+            if (width <= 0) {
+                clearInterval(id);
+                lose();
+            } else {
+                width--;
+                elem.style.width = width + "%";
+                clearInterval(id);
+                id = setInterval(frame, interval);
+            }
         }
     }
+}
+
+function closeSet() {
+    var elem = document.getElementById("settings");
+    elem.style.display = "none";
+    playing = true;
+}
+
+function settings() {
+    var elem = document.getElementById("settings");
+    elem.style.display = "block";
+    playing = false;
 }
 
 function lose() {
@@ -76,7 +132,7 @@ document.onkeydown = function(evt) {
     evt = evt || document.event;
     if (playing) {
         switch (evt.key) {
-            case "w":
+            case up:
                 if (index == code.length - 1 && code[index] == -90) {
                     rd = Math.floor(Math.random() * (amo + 1));
                     button.play();
@@ -105,7 +161,7 @@ document.onkeydown = function(evt) {
                     w_fx.play();
                 }
                 break;
-            case "a":
+            case left:
                 if (index == code.length - 1 && code[index] == 180) {
                     rd = Math.floor(Math.random() * (amo + 1));
                     button.play();
@@ -134,7 +190,7 @@ document.onkeydown = function(evt) {
                     w_fx.play();
                 }
                 break;
-            case "s":
+            case down:
                 if (index == code.length - 1 && code[index] == 90) {
                     rd = Math.floor(Math.random() * (amo + 1));
                     button.play();
@@ -163,7 +219,7 @@ document.onkeydown = function(evt) {
                     w_fx.play();
                 }
                 break;
-            case "d":
+            case right:
                 if (index == code.length - 1 && code[index] == 0) {
                     rd = Math.floor(Math.random() * (amo + 1));
                     button.play();
@@ -191,6 +247,41 @@ document.onkeydown = function(evt) {
                     }
                     index = 0;
                     w_fx.play();
+                }
+                break;
+        }
+    } else {
+        switch (change) {
+            case 1:
+                if (evt.key != down && evt.key != right && evt.key != up) {
+                    left = evt.key;
+                    var l_e = document.getElementById("left-tx");
+                    l_e.innerHTML = "LEFT: " + left;
+                    change = 0;
+                }
+                break;
+            case 2:
+                if (evt.key != down && evt.key != left && evt.key != up) {
+                    right = evt.key;
+                    var l_e = document.getElementById("right-tx");
+                    l_e.innerHTML = "RIGHT: " + right;
+                    change = 0;
+                }
+                break;
+            case 3:
+                if (evt.key != down && evt.key != right && evt.key != left) {
+                    up = evt.key;
+                    var l_e = document.getElementById("up-tx");
+                    l_e.innerHTML = "UP: " + up;
+                    change = 0;
+                }
+                break;
+            case 4:
+                if (evt.key != up && evt.key != left && evt.key != left) {
+                    down = evt.key;
+                    var l_e = document.getElementById("down-tx");
+                    l_e.innerHTML = "DOWN: " + down;
+                    change = 0;
                 }
                 break;
         }
