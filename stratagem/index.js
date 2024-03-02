@@ -7,6 +7,15 @@ var interval = 500;
 var score = 0;
 var inc = 15;
 var playing = false;
+var w_inc = 30;
+
+// https://www.youtube.com/watch?v=ijBvQACTlvs
+var button = new Audio("sfx/click.mp3");
+
+// https://www.youtube.com/watch?v=sHZUfSMLjFs
+var l_fx = new Audio("sfx/lose.mp3");
+var s_fx = new Audio("sfx/score.mp3");
+var w_fx = new Audio("sfx/wrong.mp3");
 
 //up -90 down 90 left 180 right 0
 //https://www.ign.com/wikis/helldivers-2/Stratagems_Codes_List
@@ -36,6 +45,8 @@ function start() {
 }
 
 function lose() {
+    playing = false;
+    l_fx.play();
     var elem = document.getElementById("lose");
     var tw = document.getElementById("twitter");
     var sc = document.getElementById("score-tx");
@@ -68,102 +79,118 @@ document.onkeydown = function(evt) {
             case "w":
                 if (index == code.length - 1 && code[index] == -90) {
                     rd = Math.floor(Math.random() * (amo + 1));
+                    button.play();
                     score++;
                     s_elem.innerHTML = "SCORE: " + score;
+                    s_fx.play();
                     createbtns(rd);
                     index = 0;
-                    if (width + 20 >= 100) {
+                    if (width + w_inc >= 100) {
                         width = 100;
                     } else {
-                        width += 20;
+                        width += w_inc;
                     }
                     interval -= inc;
                     break;
                 }
                 if (code[index] == -90) {
                     elem[index].style.filter = "invert(78%) sepia(87%) saturate(5065%) hue-rotate(358deg) brightness(96%) contrast(105%)";
+                    button.play();
                     index++;
                 }else {
                     for (let i = 0; i < index; i++) {
                         elem[i].style.filter = "invert(48%) sepia(0%) saturate(3121%) hue-rotate(234deg) brightness(104%) contrast(81%)";
                     }
                     index = 0;
+                    w_fx.play();
                 }
                 break;
             case "a":
                 if (index == code.length - 1 && code[index] == 180) {
                     rd = Math.floor(Math.random() * (amo + 1));
+                    button.play();
                     score++;
                     s_elem.innerHTML = "SCORE: " + score;
+                    s_fx.play();
                     createbtns(rd);
                     index = 0;
-                    if (width + 20 >= 100) {
+                    if (width + w_inc >= 100) {
                         width = 100;
                     } else {
-                        width += 20;
+                        width += w_inc;
                     }
                     interval -= inc;
                     break;
                 }
                 if (code[index] == 180) {
                     elem[index].style.filter = "invert(78%) sepia(87%) saturate(5065%) hue-rotate(358deg) brightness(96%) contrast(105%)";
+                    button.play();
                     index++;
                 }else {
                     for (let i = 0; i < index; i++) {
                         elem[i].style.filter = "invert(48%) sepia(0%) saturate(3121%) hue-rotate(234deg) brightness(104%) contrast(81%)";
                     }
                     index = 0;
+                    w_fx.play();
                 }
                 break;
             case "s":
                 if (index == code.length - 1 && code[index] == 90) {
                     rd = Math.floor(Math.random() * (amo + 1));
+                    button.play();
                     score++;
                     s_elem.innerHTML = "SCORE: " + score;
+                    s_fx.play();
                     createbtns(rd);
                     index = 0;
-                    if (width + 20 >= 100) {
+                    if (width + w_inc >= 100) {
                         width = 100;
                     } else {
-                        width += 20;
+                        width += w_inc;
                     }
                     interval -= inc;
                     break;
                 }
                 if (code[index] == 90) {
                     elem[index].style.filter = "invert(78%) sepia(87%) saturate(5065%) hue-rotate(358deg) brightness(96%) contrast(105%)";
+                    button.play();
                     index++;
                 }else {
                     for (let i = 0; i < index; i++) {
                         elem[i].style.filter = "invert(48%) sepia(0%) saturate(3121%) hue-rotate(234deg) brightness(104%) contrast(81%)";
                     }
                     index = 0;
+                    w_fx.play();
                 }
                 break;
             case "d":
                 if (index == code.length - 1 && code[index] == 0) {
                     rd = Math.floor(Math.random() * (amo + 1));
+                    button.play();
                     score++;
                     s_elem.innerHTML = "SCORE: " + score;
+                    s_fx.play();
                     createbtns(rd);
                     index = 0;
                     console.log(width);
-                    if (width + 20 >= 100) {
+                    if (width + w_inc >= 100) {
                         width = 100;
                     } else {
-                        width += 20;
+                        width += w_inc;
                     }
                     interval -= inc;
                     break;
                 }
                 if (code[index] == 0) {
                     elem[index].style.filter = "invert(78%) sepia(87%) saturate(5065%) hue-rotate(358deg) brightness(96%) contrast(105%)";
+                    button.play();
                     index++;
                 }else {
                     for (let i = 0; i < index; i++) {
                         elem[i].style.filter = "invert(48%) sepia(0%) saturate(3121%) hue-rotate(234deg) brightness(104%) contrast(81%)";
                     }
                     index = 0;
+                    w_fx.play();
                 }
                 break;
         }
