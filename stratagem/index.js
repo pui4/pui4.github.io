@@ -36,6 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var u_e = document.getElementById("up-tx");
   var d_e = document.getElementById("down-tx");
 
+  if (document.cookie == "") {
+    document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
+  } else {
+    var c = document.cookie.replace("controls=", "").split(",");
+    left = c[0];
+    right = c[1];
+    up = c[2];
+    down = c[3];
+  }
+
   l_e.innerHTML = "LEFT: " + left;
   r_e.innerHTML = "RIGHT: " + right;
   u_e.innerHTML = "UP: " + up;
@@ -45,24 +55,32 @@ document.addEventListener("DOMContentLoaded", function () {
 function changeL() {
     if (change == 0) {
         change = 1;
+        var l_e = document.getElementById("left-tx");
+        l_e.innerHTML = "LEFT: PRESS A KEY";
     }
 }
 
 function changeR() {
     if (change == 0) {
         change = 2;
+        var l_e = document.getElementById("right-tx");
+        l_e.innerHTML = "RIGHT: PRESS A KEY";
     }
 }
 
 function changeU() {
     if (change == 0) {
         change = 3;
+        var l_e = document.getElementById("up-tx");
+        l_e.innerHTML = "UP: PRESS A KEY";
     }
 }
 
 function changeD() {
     if (change == 0) {
         change = 4;
+        var l_e = document.getElementById("down-tx");
+        l_e.innerHTML = "DOWN: PRESS A KEY";
     }
 }
 
@@ -257,6 +275,7 @@ document.onkeydown = function(evt) {
                     left = evt.key;
                     var l_e = document.getElementById("left-tx");
                     l_e.innerHTML = "LEFT: " + left;
+                    document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
                     change = 0;
                 }
                 break;
@@ -265,6 +284,7 @@ document.onkeydown = function(evt) {
                     right = evt.key;
                     var l_e = document.getElementById("right-tx");
                     l_e.innerHTML = "RIGHT: " + right;
+                    document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
                     change = 0;
                 }
                 break;
@@ -273,6 +293,7 @@ document.onkeydown = function(evt) {
                     up = evt.key;
                     var l_e = document.getElementById("up-tx");
                     l_e.innerHTML = "UP: " + up;
+                    document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
                     change = 0;
                 }
                 break;
@@ -281,6 +302,7 @@ document.onkeydown = function(evt) {
                     down = evt.key;
                     var l_e = document.getElementById("down-tx");
                     l_e.innerHTML = "DOWN: " + down;
+                    document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
                     change = 0;
                 }
                 break;
