@@ -298,7 +298,7 @@ document.onkeydown = function(evt) {
                 }
                 break;
             case 4:
-                if (evt.key != up && evt.key != left && evt.key != left) {
+                if (evt.key != up && evt.key != left && evt.key != right) {
                     down = evt.key;
                     var l_e = document.getElementById("down-tx");
                     l_e.innerHTML = "DOWN: " + down;
