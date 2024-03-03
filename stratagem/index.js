@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var u_e = document.getElementById("up-tx");
   var d_e = document.getElementById("down-tx");
 
-  if (document.cookie == "") {
+  if (!document.cookie.includes("controls")) {
     document.cookie = "controls=" + left + "," + right + "," + up + "," + down + "; SameSite=Lax;"
   } else {
     var c = document.cookie.replace("controls=", "").split(",");
