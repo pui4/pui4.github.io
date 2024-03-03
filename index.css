@@ -1,0 +1,91 @@
+@font-face {
+    font-family: Cascadia;
+    src: url(./CascadiaCode.woff2);
+}
+
+body {
+    background-color: black;
+    padding: 0%;
+    margin: 0%;
+    height: 100vh;
+    color: white;
+    font-family: Cascadia;
+}
+
+.logo-bg {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nbar {
+    width: 100%;
+    box-shadow: 0px 3px 10px rgb(48, 48, 48);
+    position: fixed;
+    height: 4vw;
+    background-color: black;
+}
+
+.logo {
+    width: 2%;
+    padding: 1%;
+    position: absolute;
+}
+
+ul {
+    display: flex; /* Use flexbox for the ul */
+    align-items: center; /* Center items vertically */
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding-right: 1%;
+    right: 0%;
+    height: 100%;
+}
+
+li {
+    vertical-align: middle;
+
+}
+
+.navitem {
+    font-family: Cascadia;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color .2s linear;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+a:hover {
+    color: grey;
+}
+
+.main-con {
+    background-color: rgb(36, 36, 36);
+    box-shadow: 0px -3px 10px rgb(48, 48, 48);
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.footer {
+    background-color: rgb(65, 65, 65);
+    text-align: center;
+    box-shadow: 0px -3px 10px rgb(73, 73, 73);
+    padding: 1%;
+}
+
+.title {
+    font-size: 1000%;
+    text-decoration: underline;
+}
+
+.tex {
+    font-size: xx-large;
+}
