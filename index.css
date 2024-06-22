@@ -28,9 +28,7 @@ body {
 }
 
 .logo {
-    width: 2%;
-    padding: 1%;
-    position: absolute;
+    width: 7%;
 }
 
 ul {
@@ -42,11 +40,12 @@ ul {
     padding-right: 1%;
     right: 0%;
     height: 100%;
+    width: 100%;
 }
 
 li {
     vertical-align: middle;
-
+    margin: 2%;
 }
 
 .navitem {
@@ -88,4 +87,12 @@ a:hover {
 
 .tex {
     font-size: xx-large;
+}
+
+iframe {
+    width: 95%;
+    height: 90vh;
+    margin-top: 4%;
+    border-radius: 2%;
+    border: 0;
 }
