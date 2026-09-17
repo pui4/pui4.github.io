@@ -30,7 +30,7 @@ window.onload = function() {
     // Mobile detection
     if (mobile()) {
         document.getElementById("iframe-ctn").style.display = 'none';
-        document.getElementById("about-txt").innerHTML = "Hello. Im Daniel a 14 year old solo developer and this is a homepage for some projects I'm working on. Open the hamburger menu on the navbar above to see some stuff I've made."
+        document.getElementById("about-txt").innerHTML = "Hello. Im Daniel a 17 year old solo developer and this is a homepage for some projects I'm working on. Open the hamburger menu on the navbar above to see some stuff I've made."
 
         dk = document.querySelectorAll("[desktop]");
         i = 0;
